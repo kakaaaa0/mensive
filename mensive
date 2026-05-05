@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Happy Mensive ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(to top, #ff758c, #ff7eb3);
+    color: white;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 80px;
+    font-size: 45px;
+}
+
+p {
+    font-size: 18px;
+    padding: 0 20px;
+}
+
+img {
+    width: 200px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: #ff4d6d;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* animasi hati */
+.heart {
+    position: absolute;
+    color: pink;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10%); }
+    100% { transform: translateY(110vh); }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Mensive Sayang ❤️</h1>
+
+<p id="days"></p>
+
+<img src="foto.jpg">
+
+<p>
+Terima kasih sudah selalu ada di hidup aku 💕  
+Aku harap kita bisa terus bareng sampai kapanpun.
+</p>
+
+<button onclick="showMessage()">Klik aku 💌</button>
+
+<audio autoplay loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// HITUNG HARI JADIAN
+let startDate = new Date("2024-01-01"); // GANTI tanggal jadian kalian
+let today = new Date();
+
+let diffTime = today - startDate;
+let diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+document.getElementById("days").innerText =
+    "Kita sudah bersama selama " + diffDays + " hari ❤️";
+
+// TOMBOL PESAN
+function showMessage() {
+    alert("Aku sayang kamu lebih dari apapun ❤️");
+}
+
+// HUJAN HATI
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
